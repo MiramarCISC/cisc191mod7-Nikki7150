@@ -191,4 +191,40 @@ public class GameController {
         thread.setDaemon(true);
         thread.start();
     }
+
+    @FXML
+    private void handleAttack() {
+        if (!match.canPlayMatch()) {
+            matchLog.appendText("Join a match before attacking...\n");
+            return;
+        }
+        match.getOpponent().setHp(match.getOpponent().getHp() - 10);
+
+        matchLog.appendText("You attacked opponent (-10 HP)\n");
+        updateView();
+    }
+
+    @FXML
+    private void handleHeal() {
+        if (!match.canPlayMatch()) {
+            matchLog.appendText("Join a match before healing...\n");
+            return;
+        }
+        match.getPlayer().setHp(match.getPlayer().getHp() + 10);
+
+        matchLog.appendText("You healed (+10 HP)\n");
+        updateView();
+    }
+
+    @FXML
+    private void handleSpecialMove() {
+        if (!match.canUseSpecialMove()) {
+            matchLog.appendText("Special Move not allowed.\n");
+            return;
+        }
+        match.getOpponent().setHp(match.getOpponent().getHp() - 25);
+        matchLog.appendText("You used a Special Move on opponent (-25 HP)\n");
+
+        updateView();
+    }
 }

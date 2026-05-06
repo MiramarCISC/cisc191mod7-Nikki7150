@@ -54,4 +54,8 @@ public class MatchViewModel {
         matchOver = false;
         winnerName = "";
     }
+
+    public boolean canUseSpecialMove() {
+        return hasJoinedMatch() && !matchOver;
+    }
 }

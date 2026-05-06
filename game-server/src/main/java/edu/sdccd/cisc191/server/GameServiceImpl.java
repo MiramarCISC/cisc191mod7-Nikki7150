@@ -49,8 +49,10 @@ public class GameServiceImpl extends GameServiceGrpc.GameServiceImplBase {
                 .setMatchId(matchId)
                 .setPlayerName(match.playerName())
                 .setOpponentName(match.opponentName())
-                .setMessage("Joined " + match.matchType() + " match " + matchId
-                        + " on " + difficulty + " difficulty. Click Play Match to let the server choose a winner.")
+                .setMessage("Joined " + match.matchType() + " match (" +
+                        (ranked ? "Ranked" : "Casual") +
+                        ") " + matchId +
+                        " on " + difficulty + " difficulty. Click Play Match to let the server choose a winner.")
                 .build();
 
         responseObserver.onNext(response);
