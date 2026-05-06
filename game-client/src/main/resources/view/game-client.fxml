@@ -60,6 +60,15 @@
                 <Button text="Play Match"
                         onAction="#handlePlayMatch" />
 
+                <Button text="Attack"
+                        onAction="#handleAttack" />
+
+                <Button text="Heal"
+                        onAction="#handleHeal" />
+
+                <Button text="Special Move"
+                        onAction="#handleSpecialMove" />
+
                 <Button text="Load Match History"
                         onAction="#handleLoadHistory" />
 
